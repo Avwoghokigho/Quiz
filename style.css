@@ -26,6 +26,15 @@ body{
     color: #001e4d;
     font-weight: 600;
 }
+#answer-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "a1 a2"
+    "a3 a4";
+    gap: 10px;
+}
 .btn{
     background:  #f2c5c5;
     color: #222;
@@ -39,6 +48,10 @@ body{
     cursor: pointer;
     transition: 0.3s;
 }
+.btn:nth-child(1){grid-area: a1;}
+.btn:nth-child(2){grid-area: a2;}
+.btn:nth-child(3){grid-area: a3;}
+.btn:nth-child(4){grid-area: a4;}
 .btn:hover:not([disabled]){
     background-color: #222;
     color:  #f2c5c5;
@@ -63,4 +76,19 @@ body{
 }
 .incorrect{
     background: #ff9393;
+}
+@media (max-width:925px){
+    #answer-buttons{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+        grid-template-areas:
+        "a1"
+        "a2"
+        "a3"
+        "a4";
+    }
+    .btn{
+        grid-area: initial!important;
+    }
 }
